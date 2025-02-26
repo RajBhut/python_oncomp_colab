@@ -14,7 +14,9 @@ app.add_middleware(
 
 rooms = {}
 codes = {}
-
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
 @app.websocket("/ws/{room_name}")
 async def websocket_endpoint(websocket: WebSocket, room_name: str):
     await websocket.accept()
