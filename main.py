@@ -10,7 +10,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    allow_websockets=True
+   
 )
 @app.middleware("http")
 async def add_proxy_headers(request, call_next):
