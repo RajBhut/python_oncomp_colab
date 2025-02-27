@@ -21,8 +21,11 @@ async def root():
 async def websocket_endpoint(websocket: WebSocket, room_name: str):
     await websocket.accept()
     
+    print(f"Connected to {room_name}")
+    
     if room_name not in rooms:
         rooms[room_name] = set()
+        
     
     rooms[room_name].add(websocket)
     
