@@ -55,6 +55,8 @@ async def websocket_endpoint(websocket: WebSocket, room_name: str):
             
             if event_type == "code":
                 codes[room_name]["code"] = payload
+                user = message.get("user")
+                response["user"] = user
 
             await broadcast(room_name, json.dumps(response))
 
