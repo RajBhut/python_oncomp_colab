@@ -46,6 +46,7 @@ async def websocket_endpoint(websocket: WebSocket, room_name: str):
     try:
         while True:
             data = await websocket.receive_text()
+            print(data)
             message = json.loads(data)
 
             event_type = message.get("event")
